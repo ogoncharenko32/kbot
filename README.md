@@ -1,6 +1,6 @@
 # 🤖 kbot
 
-Telegram bot ritten in Go.
+Telegram bot written in Go.
 
 **Bot:** https://t.me/goncharenkooleksii_bot
 
