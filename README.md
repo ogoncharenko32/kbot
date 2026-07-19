@@ -40,6 +40,8 @@ Start the bot:
 | Command | Description |
 |---------|-------------|
 | `/start hello` | Returns a welcome message and the current bot version. |
+| `/start time` | Returns a current time. |
+| `/start date` | Returns a current date. |
 
 ---
 
