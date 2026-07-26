@@ -1,3 +1,4 @@
 .gitignore
 kbot
 .git
+.DS_Store

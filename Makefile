@@ -3,6 +3,7 @@ REGISTRY=ogoncharenko32
 VERSION=$(shell git describe --tags --abbrev=0)-$(shell git rev-parse --short HEAD)
 TARGETOS=linux #darwin windows 
 TARGETARCH=arm64 #amd64
+TELE_TOKEN=$(shell read -sp "TELE_TOKEN: " TELE_TOKEN)
 
 format:
 	gofmt -s -w ./
@@ -25,5 +26,8 @@ image:
 push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
+run:
+	docker run --rm -e ${TELE_TOKEN} -it ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+
 clean:
-	rm -rf kbot
+	rm -rf kbot && docker rmi -f ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
