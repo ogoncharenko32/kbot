@@ -5,6 +5,9 @@ TARGETOS=linux #darwin windows
 TARGETARCH=arm64 #amd64
 TELE_TOKEN=$(shell read -sp "TELE_TOKEN: " TELE_TOKEN)
 
+SHELL := /bin/bash
+.PHONY: run
+
 format:
 	gofmt -s -w ./
 
@@ -29,7 +32,7 @@ push:
 run:
 		@read -s -p "Введіть TELE_TOKEN: " TELE_TOKEN; \
 		echo; \
-		[-n "$$TELE_TOKEN" ] || { echo "Токен не вказано"; exit 1; }; \
+		[ -n "$$TELE_TOKEN" ] || { echo "Токен не вказано"; exit 1; }; \
 		docker run --rm \
 		-e TELE_TOKEN="$$TELE_TOKEN" \
 		-it ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
