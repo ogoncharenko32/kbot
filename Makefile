@@ -27,7 +27,12 @@ push:
 	docker push ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 run:
-	docker run --rm -e ${TELE_TOKEN} -it ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+		@read -s -p "Введіть TELE_TOKEN: " TELE_TOKEN; \
+		echo; \
+		[-n "$$TELE_TOKEN" ] || { echo "Токен не вказано"; exit 1; }; \
+		docker run --rm \
+		-e TELE_TOKEN="$$TELE_TOKEN" \
+		-it ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
 	rm -rf kbot && docker rmi -f ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
