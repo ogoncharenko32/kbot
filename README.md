@@ -15,14 +15,6 @@ git clone https://github.com/ogoncharenko32/kbot.git
 cd kbot
 ```
 
-Set up your Telegram Bot Token:
-
-```bash
-read -s TELE_TOKEN
-# Paste your token (Ctrl+Shift+V or Ctrl+V depending on your terminal)
-export TELE_TOKEN
-```
-
 ---
 
 ## ▶️ Usage
@@ -30,7 +22,15 @@ export TELE_TOKEN
 Start the bot:
 
 ```bash
-./kbot start
+make build
+make run
+```
+
+Set up your Telegram Bot Token:
+
+```bash
+TELE_TOKEN:
+# Paste your token (Ctrl+Shift+V or Ctrl+V depending on your terminal)
 ```
 
 ---
