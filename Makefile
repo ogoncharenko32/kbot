@@ -35,7 +35,7 @@ run:
 		[ -n "$$TELE_TOKEN" ] || { echo "Токен не вказано"; exit 1; }; \
 		docker run --rm \
 		-e TELE_TOKEN="$$TELE_TOKEN" \
-		-it ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
+		-d ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
 
 clean:
 	rm -rf kbot && docker rmi -f ${REGISTRY}/${APP}:${VERSION}-${TARGETARCH}
